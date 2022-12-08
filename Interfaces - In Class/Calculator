@@ -1,0 +1,38 @@
+interface ICalculator{
+    public int add();
+    public int add(int a,int b);
+    public int sub();
+    public int sub(int a,int b);
+}
+ 
+// don't change the name of this class
+// you can add inner classes if needed
+class Calculator implements ICalculator {
+    public int num1;
+    public int num2;
+    // public Calculator(int num1, int num2){
+    //     this.num1=num1;
+    //     this.num2=num2;
+    // }
+    public Calculator(){
+        num1=0;
+        num2=0;
+    }
+    public Calculator(int a, int b){
+        num1=a;
+        num2=b;
+    }
+    public int add(int a, int b){
+        return a+b;
+    }
+    public int add(){
+        return num1+num2;
+    }
+    public int sub(int a, int b){
+        return a-b;
+    }
+    public int sub(){
+        return num1-num2;
+    }
+
+}
