@@ -1,0 +1,56 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static int minSubsequenceLength(String s) {
+        int n = s.length();
+        if (n < 26) {
+            return -1;
+        }
+        int ans = Integer.MAX_VALUE;
+        int k = 26;
+        // Queue<Integer> q = new LinkedList<>();
+        ArrayList<Deque<Integer>> dq = new ArrayList<>();
+        for (int i = 0; i < k; i++) {
+             Deque<Integer> d= new ArrayDeque<>();
+             dq.add(d);
+        }
+        for (int i = 0; i < n; i++) {
+            int ch = s.charAt(i) - 'a'; //a -> 97
+            dq.get(ch).addLast(i);
+        }
+        // for(int i=0;i<k;i++)
+        //     System.out.println((char)('a'+i )+ " " +dq[i]);
+
+        while (!dq.get(0).isEmpty()) {
+            int start = dq.get(0).getFirst();
+            dq.get(0).removeFirst();
+
+            boolean flag = true;
+            int prevIdx = start;
+            for (int i = 1; i < k; i++) {
+                while (!dq.get(i).isEmpty() && dq.get(i).getFirst() < prevIdx) {
+                    dq.get(i).removeFirst();
+                }
+                if (dq.get(i).isEmpty()) {
+                    flag = false;
+                    break;
+                }
+                prevIdx = dq.get(i).getFirst();
+            }
+            if (!flag) break;
+            ans = Math.min(ans, prevIdx - start + 1);
+            //System.out.println(ans);
+        }
+        return ans == Integer.MAX_VALUE ? -1 : ans;
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        System.out.println(minSubsequenceLength(str));
+    }
+}
