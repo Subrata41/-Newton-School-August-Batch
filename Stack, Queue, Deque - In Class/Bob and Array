@@ -1,0 +1,47 @@
+import java.util.*;
+
+class Main{
+
+	static void largestPermutation(int arr[], int N)
+	{
+
+		Deque<Integer> p = new LinkedList<Integer>();
+
+		int mx = arr[0];
+		p.addLast(arr[0]);
+
+		// Iterate the array elements
+		for (int i = 1; i < N; i++) {
+
+			if (arr[i] < mx)
+				p.addLast(arr[i]);
+
+			else {
+				p.addFirst(arr[i]);
+
+				mx = arr[i];
+			}
+		}
+
+		// Print resultant permutation
+		for (Iterator itr = p.iterator(); itr.hasNext();) {
+			System.out.print(itr.next() + " ");
+		}
+	}
+
+	// Driver Code
+
+	public static void main(String[] args)
+	{
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+
+		int arr[] = new int[num];
+        for(int i=0; i<num; i++){
+            arr[i] = sc.nextInt();
+        }
+		int N = arr.length;
+
+		largestPermutation(arr, N);
+	}
+}
