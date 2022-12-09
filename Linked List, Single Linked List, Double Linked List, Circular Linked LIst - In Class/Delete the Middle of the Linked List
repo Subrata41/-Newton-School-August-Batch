@@ -1,0 +1,46 @@
+/*
+class Node {
+    Node next;
+    int val;
+
+    Node(int val) {
+        this.val = val;
+        next = null;
+    }
+}
+*/
+
+public static Node deleteMiddleElement(Node head) {
+        // return the head of the modified Linked List
+        int count=0;
+        if(head.next==null)
+        {
+            //System.out.print(head);
+            head.val=-1;
+        return head;
+        }
+        Node currNode=head;
+        while(currNode!=null)
+        {
+            currNode=currNode.next;
+            count++;
+        }
+        int num=(count/2)+1;
+        int sum=1;
+        Node first=head;
+        Node last=head.next;
+        while(last!=null)
+        { //first=first.next;
+          //last=last.next;
+          sum++;
+          if(sum==num)
+          {
+              first.next=last.next;
+              break;
+          }
+          first=first.next;
+          last=last.next;
+        //  sum++;
+        }
+        return head;
+        }
