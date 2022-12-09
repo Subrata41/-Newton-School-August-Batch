@@ -1,0 +1,5 @@
+public static ArrayList<Integer> threeWayPartition(ArrayList<Integer> A, int lowVal, int highVal)
+{
+	Collections.sort(A);
+	return A;
+}
