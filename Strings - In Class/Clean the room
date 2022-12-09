@@ -1,0 +1,25 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        String grid [] = new String[n];
+        for(int i=0; i<n; i++) grid[i]=sc.next();
+        int res=Integer.MIN_VALUE;
+        for(int i=0; i<n; i++)
+        {
+            int cnt=0;
+            for(int j=0; j<n; j++)
+            {
+                if(grid[j].equals(grid[i])) cnt++;
+            }
+            res=Math.max(res,cnt);
+        }
+        System.out.println(res);
+        
+    }
+}
