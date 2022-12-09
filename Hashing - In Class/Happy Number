@@ -1,0 +1,30 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static boolean isHappy(int n) {
+        if(n==1 || n==7){
+            return true;
+        }
+        if (n<=9){
+            return false;
+        }
+        int ans = 0;
+        while(n>0){
+            int rem = n%10;
+            n = n/10;
+            ans = ans + (rem*rem);            
+        }
+        
+        return isHappy(ans);
+        
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(isHappy(n));
+    }
+}
