@@ -1,0 +1,29 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+    char R,J,B,M,S;
+    Scanner sc = new Scanner(System.in);
+    char a = sc.next().charAt(0);
+    char b = sc.next().charAt(0);
+
+    if(a=='R' || b=='R'){
+        System.out.print("R");
+    }
+    else if((a=='B' && b=='J') || (a=='J' && b=='B')){
+        System.out.print("B");
+    }
+    else if((a=='M' && b=='J') || (a=='J' && b=='M')){
+        System.out.print("M");
+    }
+    else if((a=='S' && b=='J') || (a=='J' && b=='S')){
+        System.out.print("S");
+    }
+    else{
+        System.out.print("D");
+    }
+    }
+}
