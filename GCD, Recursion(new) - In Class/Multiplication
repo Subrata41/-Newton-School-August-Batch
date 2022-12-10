@@ -1,0 +1,9 @@
+static int  Multiply_by_recursion(int M, int N) 
+    { 
+  //Enter your code here
+    int sum = 0;
+    for(int i=1; i<=M; i++){
+      sum = sum + N;
+    }
+    return sum;
+    }
