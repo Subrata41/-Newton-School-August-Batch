@@ -1,0 +1,15 @@
+static void Pattern(int N){
+//Enter your code here
+int i,j,x=0,a=0;
+
+for(i=0;i<N;i++){
+   
+    for(j=0;j<N;j++){
+        System.out.print(x+" ");
+        x=x+4;
+    }
+    a=a+6;
+    x=a;
+    System.out.println();
+}
+}
