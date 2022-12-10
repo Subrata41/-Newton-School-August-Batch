@@ -1,0 +1,10 @@
+static int StringToInt(String S){
+int str1 = Integer.parseInt(S);  
+return str1;
+}
+
+static String IntToString(int N){
+//Enter your code here
+String str2 = Integer.toString(N);
+return str2;
+}
