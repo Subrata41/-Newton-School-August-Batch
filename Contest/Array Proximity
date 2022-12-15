@@ -1,0 +1,39 @@
+#include <bits/stdc++.h> // header file includes every Standard library
+using namespace std;
+
+int main() {
+	// Your code here
+    int  n=0;
+    cin>>n;
+    long long a[n];
+    for(int i=0 ; i<n ; i++){
+        cin>>a[i];
+    }
+    //sort(a,a+n);
+    /*int first = 0;
+    int second=-1;
+    for(int i=1;i<n;i++){
+        if(a[i]>a[first]){
+            second=first;
+            first=i;
+        }
+        else if(a[i]<a[first]){
+            if(second==-1 ||a[second]<a[i]){
+                second=i;
+            }
+        }
+    }*/
+
+    long long mul = 0;
+    //if(second==-1){
+        for(int i=1;i<n;i++){
+            mul = max(mul , a[i]*a[i-1]);
+        }
+        
+    //}
+    //else{
+        //mul = a[n-1] * a[second];
+    //}
+    cout<<mul;
+    return 0;
+}
