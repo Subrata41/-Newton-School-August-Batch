@@ -1,0 +1,31 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    static void nearestElement(int arr[],int n){
+        if(arr==null || n==0){
+            return;
+        }
+        for(int i=0; i<n; i++){
+            int prev=-1;
+            for(int j=i-1; j>=0; j--){
+                if(arr[j]<=arr[i]){
+                    prev=arr[j];
+                    break;
+                }
+            }
+            System.out.print(prev+" ");
+        }
+    }
+    public static void main (String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0; i<n; i++){
+            arr[i]=sc.nextInt();
+        }
+        nearestElement(arr,n);
+    }
+}
